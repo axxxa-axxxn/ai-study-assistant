@@ -58,3 +58,35 @@ export async function getCurrentUser() {
 
   return data;
 }
+
+
+// ============================================================
+// RAG CHAT
+// ============================================================
+
+export async function askRag(question) {
+  const token = localStorage.getItem("access_token");
+
+  if (!token) {
+    throw new Error("No access token found");
+  }
+
+  const response = await fetch(`${API_URL}/api/rag/chat`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      message: question,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "RAG request failed");
+  }
+
+  return data;
+}

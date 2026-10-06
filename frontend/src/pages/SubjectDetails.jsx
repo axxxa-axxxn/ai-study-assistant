@@ -404,7 +404,7 @@ function SubjectDetails() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
+    <div className="subject-details-page">
       {/* ==================================================
           MOBILE OVERLAY
       ================================================== */}
@@ -426,6 +426,7 @@ function SubjectDetails() {
         lg:translate-x-0`}
       >
         {/* Logo */}
+
         <div className="flex h-20 items-center justify-between border-b border-slate-200 px-6">
           <div className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-600 text-white">
@@ -453,6 +454,7 @@ function SubjectDetails() {
         </div>
 
         {/* Navigation */}
+
         <nav className="flex-1 space-y-2 px-4 py-6">
           {navigation.map((item) => {
             const Icon = item.icon;
@@ -481,6 +483,7 @@ function SubjectDetails() {
         </nav>
 
         {/* User */}
+
         <div className="border-t border-slate-200 p-4">
           <button
             onClick={() =>
@@ -520,6 +523,7 @@ function SubjectDetails() {
 
       <main className="lg:ml-72">
         {/* Header */}
+
         <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <button
@@ -606,6 +610,7 @@ function SubjectDetails() {
               </div>
 
               {/* Progress */}
+
               <div className="mt-8 border-t border-slate-100 pt-6">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-sm font-semibold text-slate-700">
@@ -629,6 +634,7 @@ function SubjectDetails() {
             </div>
 
             {/* Stats */}
+
             <div className="grid grid-cols-2 border-t border-slate-200 sm:grid-cols-4">
               <div className="border-b border-slate-200 p-5 text-center sm:border-b-0 sm:border-r">
                 <BookOpen
@@ -724,6 +730,7 @@ function SubjectDetails() {
                       className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
                     >
                       {/* Topic Row */}
+
                       <button
                         onClick={() =>
                           toggleTopic(topic.id)
@@ -731,6 +738,7 @@ function SubjectDetails() {
                         className="flex w-full items-center gap-4 p-5 text-left transition hover:bg-slate-50"
                       >
                         {/* Status */}
+
                         {topic.completed ? (
                           <CheckCircle
                             size={23}
@@ -744,11 +752,13 @@ function SubjectDetails() {
                         )}
 
                         {/* Number */}
+
                         <div className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-500 sm:flex">
                           {String(index + 1).padStart(2, "0")}
                         </div>
 
                         {/* Topic Info */}
+
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-2">
                             <h3 className="font-semibold text-slate-800">
@@ -776,6 +786,7 @@ function SubjectDetails() {
                         </div>
 
                         {/* Arrow */}
+
                         {expanded ? (
                           <ChevronUp
                             size={19}
@@ -790,6 +801,7 @@ function SubjectDetails() {
                       </button>
 
                       {/* Expanded Content */}
+
                       {expanded && (
                         <div className="border-t border-slate-100 bg-slate-50 p-5">
                           <p className="text-sm leading-6 text-slate-600">
@@ -829,6 +841,7 @@ function SubjectDetails() {
 
             <aside className="space-y-6">
               {/* Continue */}
+
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <div className={`rounded-xl p-3 ${colors.light}`}>
@@ -866,6 +879,7 @@ function SubjectDetails() {
               </div>
 
               {/* Completion */}
+
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="font-bold text-slate-900">
                   Completion
@@ -915,6 +929,7 @@ function SubjectDetails() {
               </div>
 
               {/* Quick Actions */}
+
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="font-bold text-slate-900">
                   Quick Actions

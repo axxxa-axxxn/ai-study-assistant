@@ -23,6 +23,9 @@ node_modules/
 .next/
 out/
 
+# Vite
+dist/
+
 # Environment
 .env.local
 .env.production

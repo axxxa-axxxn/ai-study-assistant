@@ -7,6 +7,7 @@ from flask_jwt_extended import (
 
 from app import db
 from app.models import User
+from rag.rag_service import ask_rag
 
 
 main_bp = Blueprint("main", __name__)
@@ -146,3 +147,87 @@ def get_current_user():
             "email": user.email
         }
     }), 200
+
+
+@main_bp.route("/api/ai/chat", methods=["POST"])
+@jwt_required()
+def ai_chat():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({
+            "success": False,
+            "message": "Request body is required"
+        }), 400
+
+    message = data.get("message")
+
+    if not message or not message.strip():
+        return jsonify({
+            "success": False,
+            "message": "Message is required"
+        }), 400
+
+    try:
+        from app.ai_service import generate_ai_response
+
+        answer = generate_ai_response(message.strip())
+
+        return jsonify({
+            "success": True,
+            "message": message,
+            "response": answer
+        }), 200
+
+    except Exception as e:
+        print("AI API Error:", str(e))
+
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        }), 500
+
+# ============================================================
+# RAG CHAT ENDPOINT - PHASE 3 AI ANSWER GENERATION
+# ============================================================
+
+@main_bp.route("/api/rag/chat", methods=["POST"])
+@jwt_required()
+def rag_chat():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({
+            "success": False,
+            "message": "Request body is required"
+        }), 400
+
+    question = data.get("message")
+
+    if not question or not question.strip():
+        return jsonify({
+            "success": False,
+            "message": "Message is required"
+        }), 400
+
+    try:
+        result = ask_rag(
+            question=question.strip(),
+            use_ai=True
+        )
+
+        return jsonify({
+            "success": True,
+            "question": result["question"],
+            "response": result["answer"],
+            "sources": result["sources"]
+        }), 200
+
+    except Exception as e:
+        print("RAG API Error:", str(e))
+
+        return jsonify({
+            "success": False,
+            "message": "RAG service failed",
+            "error": str(e)
+        }), 500

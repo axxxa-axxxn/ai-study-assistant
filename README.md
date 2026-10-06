@@ -1,52 +1,141 @@
 # AI Study Assistant
 
-An intelligent web-based study assistant designed to help students organize their learning, manage study resources, take quizzes, track progress, and eventually interact with AI-powered learning features.
+An intelligent full-stack web-based study assistant designed to help students organize their learning, access study materials, take quizzes, track progress, and interact with AI-powered learning features.
 
-This project is currently under active development as a deployment project.
+The project is currently under active development as a deployment-focused full-stack application.
+
+---
 
 ## 🚀 Current Project Status
 
-The current version includes a working React frontend connected to a Flask backend with PostgreSQL/Supabase database integration and JWT-based authentication.
+The AI Study Assistant currently includes:
 
-### Implemented
+- React + Vite frontend
+- Flask REST API backend
+- PostgreSQL / Supabase database
+- SQLAlchemy ORM
+- JWT authentication
+- User registration and login
+- Protected backend APIs
+- Protected React routes
+- Frontend ↔ backend authentication integration
+- Complete study-oriented frontend interface
+- AI Study Assistant interface
+- RAG-based study material retrieval
+- ChromaDB vector database
+- Sentence Transformer embeddings
+- PDF study material processing
+- Semantic search and retrieval
+- Frontend integration with the RAG backend
 
-* React frontend
-* Flask backend
-* REST API development
-* PostgreSQL database
-* Supabase PostgreSQL integration
-* SQLAlchemy ORM
-* User registration
-* User login
-* Password hashing
-* JWT access-token authentication
-* Protected API endpoint
-* React authentication context
-* Local storage authentication state
-* Frontend ↔ backend integration
-* Responsive authentication UI
-* Dashboard and study-related frontend pages
+The project has progressed from a basic frontend/authentication system into a full-stack application with an integrated RAG pipeline.
 
-### Currently Available Frontend Pages
+---
 
-* Login
-* Register
-* Dashboard
-* Subjects
-* Subject Details
-* Study Assistant
-* Quizzes
-* Quiz
-* Quiz Result
-* Progress
-* Profile
+# 📋 Features
 
-## 🏗️ Project Architecture
+## Frontend
+
+The React application currently includes:
+
+- Login
+- Registration
+- Dashboard
+- Subjects
+- Subject Details
+- AI Study Assistant
+- Quizzes
+- Quiz
+- Quiz Result
+- Progress
+- Profile
+- Responsive layouts
+- Custom CSS styling
+- Protected pages
+- Authentication state management
+- Dashboard statistics and progress visualization
+- Subject progress visualization
+- Quiz interface
+- Quiz result interface
+- Progress analytics interface
+- Profile interface
+- AI chat interface
+
+---
+
+## Backend
+
+The Flask backend currently provides:
+
+- REST API
+- PostgreSQL integration
+- Supabase PostgreSQL integration
+- SQLAlchemy ORM
+- User model
+- User registration
+- User login
+- Password hashing
+- JWT authentication
+- Protected API endpoints
+- Current-user endpoint
+- RAG retrieval endpoint
+- Frontend ↔ backend communication
+
+---
+
+# 🔐 Authentication
+
+The project currently uses JWT-based authentication.
+
+### Authentication Features
+
+- User registration
+- User login
+- Password hashing
+- JWT access tokens
+- Protected API routes
+- React authentication context
+- Local storage authentication state
+- Protected frontend routes
+- Backend authentication validation
+
+### Authentication Flow
 
 ```text
+React Login Page
+       │
+       ▼
+POST /api/auth/login
+       │
+       ▼
+Flask Backend
+       │
+       ▼
+PostgreSQL / Supabase
+       │
+       ▼
+Validate Credentials
+       │
+       ▼
+Generate JWT Access Token
+       │
+       ▼
+React AuthContext
+       │
+       ▼
+Store Authentication State
+       │
+       ▼
+Protected React Pages
+       │
+       ▼
+Protected Backend APIs
+
+🏗️ Project Architecture
+
 AI Study Assistant
 │
-├── frontend/                 # React application
+├── frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── context/
@@ -55,303 +144,259 @@ AI Study Assistant
 │   │   ├── App.jsx
 │   │   ├── App.css
 │   │   └── index.css
+│   │
 │   └── package.json
 │
-├── backend/                  # Flask REST API
+├── backend/
 │   ├── app/
 │   │   ├── __init__.py
 │   │   ├── config.py
 │   │   ├── models.py
 │   │   └── routes.py
+│   │
 │   ├── run.py
 │   └── requirements.txt
 │
-├── docker/                   # Docker configuration
-├── nginx/                    # Nginx configuration
-├── .github/                  # GitHub configuration
+├── docker/
+│
+├── nginx/
+│
+├── .github/
+│
 ├── .gitignore
+│
 └── README.md
-```
 
-## 🛠️ Technology Stack
 
-### Frontend
+🛠️ Technology Stack
+Frontend
+React
+Vite
+JavaScript
+React Router
+CSS
+Lucide React
+Backend
+Python
+Flask
+Flask-CORS
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Werkzeug
+Database
+PostgreSQL
+Supabase
+SQLAlchemy
+Authentication
+JWT access tokens
+Password hashing
+Protected API routes
+React authentication context
+Browser local storage
+AI / RAG
+Python
+LangChain
+ChromaDB
+Sentence Transformers
+PyPDF
+Vector embeddings
+Semantic search
+Retrieval-Augmented Generation (RAG)
+🤖 AI Study Assistant
 
-* React
-* Vite
-* React Router
-* JavaScript
-* CSS
-* Lucide React
+The project includes an AI Study Assistant interface that allows students to ask questions about their study material.
 
-### Backend
+Students can ask questions related to:
 
-* Python
-* Flask
-* Flask-CORS
-* Flask-SQLAlchemy
-* Flask-JWT-Extended
-* Werkzeug
+Study material
+Concepts
+Projects
+Exam preparation
+Quiz preparation
+Learning topics
 
-### Database
+The React AI Study Assistant communicates with the Flask backend and uses the RAG retrieval pipeline to find relevant information from the available study material.
 
-* PostgreSQL
-* Supabase
-* SQLAlchemy
+📚 RAG Implementation
 
-### Authentication
+The Retrieval-Augmented Generation system has been implemented in multiple phases.
 
-* JWT access tokens
-* Password hashing
-* Protected API routes
-* React authentication context
-* Browser local storage
+RAG Phase 1 — Completed
 
-## 🔐 Authentication Flow
+The initial RAG infrastructure has been implemented.
 
-The current authentication flow works as follows:
+Completed
+Study material ingestion
+PDF processing
+Text extraction
+Text chunking
+Embedding generation
+Sentence Transformer embeddings
+ChromaDB vector storage
+Semantic similarity search
+Retrieval pipeline
 
-```text
-React Login Page
-       ↓
-POST /api/auth/login
-       ↓
-Flask Backend
-       ↓
-PostgreSQL / Supabase
-       ↓
-Validate User Credentials
-       ↓
-Generate JWT Access Token
-       ↓
-React AuthContext
-       ↓
-Store Token in localStorage
-       ↓
-Access Protected Pages / APIs
-```
+The main RAG libraries used include:
 
-## 🔌 Current API Endpoints
+LangChain
+ChromaDB
+Sentence Transformers
+PyPDF
+🔎 RAG Phase 2 — Completed
 
-### Health Check
+The retrieval system has been integrated with the backend and frontend.
 
-```http
-GET /api/health
-```
+Completed
+RAG retrieval endpoint
+Study material retrieval
+Semantic question search
+Relevant document/chunk retrieval
+Backend RAG integration
+React AI Assistant integration
+Frontend → RAG API communication
+Retrieval testing
+Current RAG Flow
+Student Question
+       │
+       ▼
+React AI Study Assistant
+       │
+       ▼
+askRag()
+       │
+       ▼
+Flask RAG Endpoint
+       │
+       ▼
+Question Processing
+       │
+       ▼
+Embedding Generation
+       │
+       ▼
+ChromaDB Vector Search
+       │
+       ▼
+Relevant Study Material
+       │
+       ▼
+Retrieved Context
+       │
+       ▼
+AI Study Assistant
+       │
+       ▼
+Student
+🧪 RAG Testing
 
-Returns the current backend health status.
-
-### Register
-
-```http
-POST /api/auth/register
-```
-
-Example request:
-
-```json
-{
-  "name": "Test Student",
-  "email": "student@example.com",
-  "password": "password123"
-}
-```
-
-### Login
-
-```http
-POST /api/auth/login
-```
-
-Example request:
-
-```json
-{
-  "email": "student@example.com",
-  "password": "password123"
-}
-```
-
-The endpoint returns a JWT access token after successful authentication.
-
-### Current User
-
-```http
-GET /api/auth/me
-```
-
-Requires:
-
-```http
-Authorization: Bearer <access_token>
-```
-
-Returns the authenticated user's information.
-
-## 💻 Running the Project Locally
-
-### Backend
-
-Navigate to the backend directory:
-
-```bash
-cd backend
-```
-
-Activate the Python virtual environment.
-
-On Windows PowerShell:
-
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-Run the Flask application:
-
-```bash
-python run.py
-```
-
-The backend runs at:
-
-```text
-http://127.0.0.1:5000
-```
-
-### Frontend
-
-Open another terminal and navigate to:
-
-```bash
-cd frontend
-```
-
-Install dependencies if required:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-The frontend will normally be available at the URL shown by Vite in the terminal.
-
-## 🔑 Environment Variables
-
-The backend uses environment variables for configuration.
+The RAG system has been tested using questions based on the available study material.
 
 Example:
 
-```env
-FLASK_DEBUG=True
-SECRET_KEY=your-secret-key
-JWT_SECRET_KEY=your-jwt-secret-key
-DATABASE_URL=your-postgresql-database-url
-```
+Question:
 
-**Important:** Never commit the actual `.env` file, database password, JWT secret, or other private credentials to GitHub.
+What is the RoadSafe project?
 
-The `.gitignore` file is configured to exclude `.env`.
+The system retrieves relevant information from the study material, including the RoadSafe project overview and its purpose.
 
-## 📊 Database
+The AI Study Assistant is therefore connected to the implemented retrieval pipeline rather than functioning only as a static chat interface.
 
-The project currently uses PostgreSQL through Supabase.
+⚠️ Current AI Generation Status
 
-The initial implemented database model is the `User` model.
+The project contains external LLM/OpenAI generation integration code.
 
-### User
+However, external AI generation is currently limited because of API credit/usage availability.
 
-```text
-id
-name
-email
-password_hash
-created_at
-```
+Therefore, the current development setup can operate using retrieved study material without depending entirely on external LLM generation.
 
-Passwords are stored as hashes rather than plain text.
+The retrieval pipeline can continue to be developed and tested independently.
 
-## 🧪 Current Testing
 
-The following functionality has been tested successfully:
+📊 Current Development Progress
 
-* Backend starts successfully
-* PostgreSQL/Supabase connection works
-* User registration works
-* Duplicate email validation works
-* User login works
-* JWT access token is generated
-* Protected `/api/auth/me` endpoint works
-* React frontend communicates with Flask backend
-* Successful login redirects the user to the dashboard
-
-## 🔄 Current Development Progress
-
-```text
 Frontend
    ✅ React UI
+   ✅ Vite
    ✅ Routing
    ✅ Login/Register
+   ✅ Authentication UI
    ✅ Dashboard
-   ✅ Study pages
+   ✅ Subjects
+   ✅ Subject Details
+   ✅ AI Study Assistant
    ✅ Quiz pages
-   ✅ Progress/Profile pages
+   ✅ Quiz Result
+   ✅ Progress
+   ✅ Profile
+   ✅ Responsive styling
+   ✅ Frontend ↔ Backend authentication integration
+
 
 Backend
    ✅ Flask
    ✅ REST APIs
-   ✅ PostgreSQL connection
+   ✅ PostgreSQL
+   ✅ Supabase
    ✅ SQLAlchemy
    ✅ User model
+   ✅ Password hashing
    ✅ Registration
    ✅ Login
    ✅ JWT access authentication
    ✅ Protected API
+   ✅ Current-user API
+   ✅ RAG endpoint
 
-AI Features
-   ⬜ AI API integration
-   ⬜ RAG
-   ⬜ LangChain
-   ⬜ LangGraph
 
-Deployment
+AI / RAG
+   ✅ RAG Phase 1
+   ✅ Study material processing
+   ✅ PDF extraction
+   ✅ Text chunking
+   ✅ Sentence Transformer embeddings
+   ✅ ChromaDB vector database
+   ✅ Semantic retrieval
+   ✅ RAG Phase 2
+   ✅ Backend RAG integration
+   ✅ Frontend RAG integration
+   ✅ AI Study Assistant connected to RAG
+   ⚠️ External LLM generation limited by API availability
+   ⬜ Advanced RAG Phase 3
+   ⬜ LangGraph workflows
+
+
+Application Data APIs
+   ⬜ Study material CRUD APIs
+   ⬜ Persistent study-material management
+   ⬜ Quiz database APIs
+   ⬜ Quiz result persistence
+   ⬜ Persistent progress tracking
+   ⬜ Real-time dashboard data APIs
+
+
+Production Deployment
+   ⬜ Docker production setup
    ⬜ VPS deployment
    ⬜ Nginx configuration
    ⬜ Domain/DNS configuration
-   ⬜ Production configuration
+   ⬜ Production environment configuration
    ⬜ GitHub Actions / CI/CD
-```
 
-## 🗺️ Future Development
 
-The next stages of development will include:
+👩‍💻 Project
+AI Study Assistant
 
-1. Complete authentication architecture with refresh tokens.
-2. Connect the remaining frontend modules to backend APIs.
-3. Implement study-material management.
-4. Implement quiz data and result storage.
-5. Implement progress tracking.
-6. Integrate a third-party AI/LLM API.
-7. Add AI-powered study assistance.
-8. Implement RAG for study materials.
-9. Explore LangChain for AI workflows.
-10. Explore LangGraph for multi-step AI workflows.
-11. Containerize the application for production.
-12. Deploy the application to a VPS.
-13. Configure Nginx as a reverse proxy.
-14. Configure domain and DNS.
-15. Create GitHub Actions CI/CD workflows.
+A deployment-focused full-stack application built using:
 
-## 📌 Development Note
+React
+Vite
+Flask
+PostgreSQL
+Supabase
+SQLAlchemy
+JWT
+LangChain
+ChromaDB
+Sentence Transformers
+PyPDF
 
-This repository represents the current working development stage of the AI Study Assistant. Features listed under future development are planned and are not yet considered production-ready.
-
-## 👩‍💻 Project
-
-**AI Study Assistant**
-
-Built as a deployment-focused full-stack application using React, Flask, PostgreSQL/Supabase, and JWT authentication.
